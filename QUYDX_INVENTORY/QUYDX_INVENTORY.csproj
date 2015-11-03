@@ -121,6 +121,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BO\BO.csproj">
+      <Project>{9b0e457b-fde1-4d3f-bace-494f5c3668a2}</Project>
+      <Name>BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BSL\BSL.csproj">
+      <Project>{036ffb99-e188-404e-a486-c8f613fbffe9}</Project>
+      <Name>BSL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\COMMON\COMMON.csproj">
       <Project>{7c5a8787-69ef-4a70-aefb-c2695c08e510}</Project>
       <Name>COMMON</Name>

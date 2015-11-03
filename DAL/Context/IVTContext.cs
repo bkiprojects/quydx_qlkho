@@ -1,4 +1,5 @@
-﻿using MODEL.Common;
+﻿using MODEL;
+using MODEL.Common;
 using MODEL.HANG;
 using MODEL.NHAP;
 using System;
@@ -8,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityFramework.DynamicFilters;
 namespace DAL.Context
 {
     public class IVTContext : DbContext, IDisposable
@@ -20,7 +21,7 @@ namespace DAL.Context
 
         public DbSet<GD_PHIEU_NHAP> GD_PHIEU_NHAP { get; set; }
         public DbSet<GD_PHIEU_NHAP_CHI_TIET> GD_PHIEU_NHAP_CHI_TIET { get; set; }
-
+        public DbSet<DM_NHAN_VIEN> DM_NHAN_VIEN { get; set; }
         public IVTContext()
             : base("name=IVTContext")
         {
@@ -66,7 +67,7 @@ namespace DAL.Context
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             //Begin TuyenNT
-            //modelBuilder.Filter("IsDeleted", (BasicEntity bs) => bs.IsDeleted, false);
+            modelBuilder.Filter("IsDeleted", (Entity bs) => bs.IsDeleted, false);
         }
     }
 }
