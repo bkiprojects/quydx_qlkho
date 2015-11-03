@@ -32,19 +32,19 @@
             this.m_cmd_dang_nhap = new DevExpress.XtraEditors.SimpleButton();
             this.m_cmd_thoat = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.m_txt_ten_dang_nhap = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.m_txt_mat_khau = new DevExpress.XtraEditors.TextEdit();
+            this.m_txt_ten_dang_nhap = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_txt_ten_dang_nhap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_txt_mat_khau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_txt_ten_dang_nhap.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +90,28 @@
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // m_txt_mat_khau
+            // 
+            this.m_txt_mat_khau.Location = new System.Drawing.Point(12, 86);
+            this.m_txt_mat_khau.Name = "m_txt_mat_khau";
+            this.m_txt_mat_khau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.m_txt_mat_khau.Properties.Appearance.Options.UseFont = true;
+            this.m_txt_mat_khau.Properties.UseSystemPasswordChar = true;
+            this.m_txt_mat_khau.Size = new System.Drawing.Size(295, 26);
+            this.m_txt_mat_khau.StyleController = this.layoutControl1;
+            this.m_txt_mat_khau.TabIndex = 5;
+            // 
+            // m_txt_ten_dang_nhap
+            // 
+            this.m_txt_ten_dang_nhap.EnterMoveNextControl = true;
+            this.m_txt_ten_dang_nhap.Location = new System.Drawing.Point(12, 34);
+            this.m_txt_ten_dang_nhap.Name = "m_txt_ten_dang_nhap";
+            this.m_txt_ten_dang_nhap.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.m_txt_ten_dang_nhap.Properties.Appearance.Options.UseFont = true;
+            this.m_txt_ten_dang_nhap.Size = new System.Drawing.Size(295, 26);
+            this.m_txt_ten_dang_nhap.StyleController = this.layoutControl1;
+            this.m_txt_ten_dang_nhap.TabIndex = 4;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -104,17 +126,6 @@
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // m_txt_ten_dang_nhap
-            // 
-            this.m_txt_ten_dang_nhap.EnterMoveNextControl = true;
-            this.m_txt_ten_dang_nhap.Location = new System.Drawing.Point(12, 34);
-            this.m_txt_ten_dang_nhap.Name = "m_txt_ten_dang_nhap";
-            this.m_txt_ten_dang_nhap.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.m_txt_ten_dang_nhap.Properties.Appearance.Options.UseFont = true;
-            this.m_txt_ten_dang_nhap.Size = new System.Drawing.Size(295, 26);
-            this.m_txt_ten_dang_nhap.StyleController = this.layoutControl1;
-            this.m_txt_ten_dang_nhap.TabIndex = 4;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -127,16 +138,6 @@
             this.layoutControlItem1.Text = "Tên đăng nhập";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(107, 19);
-            // 
-            // m_txt_mat_khau
-            // 
-            this.m_txt_mat_khau.Location = new System.Drawing.Point(12, 86);
-            this.m_txt_mat_khau.Name = "m_txt_mat_khau";
-            this.m_txt_mat_khau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.m_txt_mat_khau.Properties.Appearance.Options.UseFont = true;
-            this.m_txt_mat_khau.Size = new System.Drawing.Size(295, 26);
-            this.m_txt_mat_khau.StyleController = this.layoutControl1;
-            this.m_txt_mat_khau.TabIndex = 5;
             // 
             // layoutControlItem2
             // 
@@ -165,10 +166,10 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_txt_ten_dang_nhap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_txt_mat_khau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_txt_ten_dang_nhap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
