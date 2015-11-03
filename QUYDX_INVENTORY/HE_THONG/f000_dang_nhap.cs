@@ -32,6 +32,7 @@ namespace QUYDX_INVENTORY.HE_THONG
         {
             try
             {
+                Hide();
                 MainForm main_form = new MainForm();
                 main_form.ShowDialog();
                 main_form.Dispose();
