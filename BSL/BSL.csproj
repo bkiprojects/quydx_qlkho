@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="COMMOM_SERVICE\BS_KHO.cs" />
     <Compile Include="COMMOM_SERVICE\BS_NhanVien.cs" />
+    <Compile Include="HANG_SERVICE\BS_MAT_HANG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

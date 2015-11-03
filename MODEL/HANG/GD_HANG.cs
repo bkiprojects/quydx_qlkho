@@ -34,14 +34,21 @@ namespace MODEL.HANG
         [ForeignKey("ID_TRANG_THAI")]
         public TU_DIEN TRANG_THAI { get; private set; }
 
+
+        public decimal GIA_NHAP { get; private set; }
+        public decimal GIA_XUAT_DE_XUAT { get; private set; }
+        public decimal GIA_XUAT { get; private set; }
         public int THOI_GIAN_BAO_HANH { get; private set; }
-        public ICollection<GD_PHU_KIEN> LIST_PHU_KIEN { get; set; }
+        
 
         public DateTime? NGAY_NHAT_HANG { get; private set; }
         public DateTime? NGAY_XUAT_HANG { get; private set; }
 
         public DateTime? NGAY_BAT_DAU_BAO_HANH { get; private set; }
         public DateTime? NGAY_KET_THUC_BAO_HANH { get; private set; }
+
+
+        public ICollection<GD_PHU_KIEN> LIST_PHU_KIEN { get; set; }
 
         #endregion
     }

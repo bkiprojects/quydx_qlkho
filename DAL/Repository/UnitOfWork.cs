@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    class UnitOfWork
+    public class UnitOfWork : IDisposable
     {
         /// <summary>
         /// Context toàn bộ dự án
