@@ -21,7 +21,11 @@ namespace DAL.Context
 
         public DbSet<GD_PHIEU_NHAP> GD_PHIEU_NHAP { get; set; }
         public DbSet<GD_PHIEU_NHAP_CHI_TIET> GD_PHIEU_NHAP_CHI_TIET { get; set; }
+
+        public DbSet<DM_KHO> DM_KHO { get; set; }
         public DbSet<DM_NHAN_VIEN> DM_NHAN_VIEN { get; set; }
+        public DbSet<DM_KHACH_HANG> DM_KHACH_HANG { get; set; }
+        public DbSet<DM_NHA_CUNG_CAP> DM_NHA_CUNG_CAP { get; set; }
         public IVTContext()
             : base("name=IVTContext")
         {
