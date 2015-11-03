@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QUYDX_INVENTORY.HE_THONG;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QUYDX_INVENTORY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new f000_dang_nhap());
         }
     }
 }
