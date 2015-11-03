@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CB1954E-71B4-4205-83E2-DD51761C93DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MODEL</RootNamespace>
+    <AssemblyName>MODEL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAO_HANH\GD_PHIEU_BAO_HANH.cs" />
+    <Compile Include="BAO_HANH\GD_PHIEU_BAO_HANH_CHI_TIET.cs" />
+    <Compile Include="CHUNG_TU_INFO.cs" />
+    <Compile Include="CHUYEN_KHO\GD_CHUYEN_KHO.cs" />
+    <Compile Include="CHUYEN_KHO\GD_CHUYEN_KHO_CHI_TIET.cs" />
+    <Compile Include="Common\Entity.cs" />
+    <Compile Include="Common\ObjectState.cs" />
+    <Compile Include="DM_KHACH_HANG.cs" />
+    <Compile Include="DM_KHO.cs" />
+    <Compile Include="DM_NHAN_VIEN.cs" />
+    <Compile Include="DM_NHA_CUNG_CAP.cs" />
+    <Compile Include="HANG\DM_MAT_HANG.cs" />
+    <Compile Include="HANG\DM_PHU_KIEN.cs" />
+    <Compile Include="HANG\GD_HANG.cs" />
+    <Compile Include="HANG\GD_PHU_KIEN.cs" />
+    <Compile Include="NHAP\GD_PHIEU_NHAP.cs" />
+    <Compile Include="NHAP\GD_PHIEU_NHAP_CHI_TIET.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TRA_NCC\GD_PHIEU_TRA_NCC.cs" />
+    <Compile Include="TRA_NCC\GD_PHIEU_TRA_NCC_CHI_TIET.cs" />
+    <Compile Include="TU_DIEN_DATA\LOAI_TU_DIEN.cs" />
+    <Compile Include="TU_DIEN_DATA\TU_DIEN.cs" />
+    <Compile Include="XUAT\GD_PHIEU_XUAT.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
