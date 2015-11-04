@@ -22,10 +22,9 @@ namespace MODEL.HANG
         #region Property
         public long ID { get; private set; }
         public string TEN_MAT_HANG { get; private set; }
-        public decimal GIA_NHAP { get; private set; }
+        public decimal GIA_NHAP_DE_XUAT { get; private set; }
         public decimal GIA_XUAT_DE_XUAT { get; private set; }
-        public decimal GIA_XUAT { get; private set; }
-        public int THOI_GIAN_BAO_HANH { get; private set; }
+        public int THOI_GIAN_BAO_HANH_DE_XUAT { get; private set; }
 
         public ICollection<GD_HANG> LIST_HANG { get; private set; }
         #endregion

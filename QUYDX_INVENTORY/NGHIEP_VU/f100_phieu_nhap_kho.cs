@@ -52,13 +52,45 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         {
             m_sle_mat_hang.Properties.DataSource = m_ds_mat_hang;
         }
+        private void fill_data_to_grid_hang()
+        {
+            m_grd_ds_hang.DataSource = m_ds_hang;
+            m_grd_ds_hang.RefreshDataSource();
+        }
         private void add_item()
         {
-            if(ControlUtility.ValidateControlEmpty(m_sle_mat_hang, m_txt_barcode))
+            if(!ControlUtility.ValidateControlEmpty(m_sle_mat_hang, m_txt_barcode))
             {
                 XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning );
                 return;
             }
+            DM_MAT_HANG obj_selected = (DM_MAT_HANG) m_sle_mat_hang.Properties.View.GetRow(m_sle_mat_hang.Properties.GetIndexByKeyValue(m_sle_mat_hang.EditValue));
+
+            BO_HANG item = new BO_HANG()
+            {
+                ID = 0,
+                TEN_MAT_HANG = obj_selected.TEN_MAT_HANG,
+                GIA_NHAP = obj_selected.GIA_NHAP_DE_XUAT,
+                GIA_XUAT_DE_XUAT = obj_selected.GIA_XUAT_DE_XUAT,
+                THOI_GIAN_BAO_HANH = obj_selected.THOI_GIAN_BAO_HANH_DE_XUAT,
+                BARCODE = m_txt_barcode.Text.Trim()
+            };
+            m_ds_hang.Add(item);
+            fill_data_to_grid_hang();
+        }
+        private void lap_phieu()
+        {
+            if(!ControlUtility.ValidateControlEmpty(m_txt_so_phieu_nhap, m_dat_ngay_nhap_kho, m_le_nhap_vao_kho, m_sle_nhan_vien))
+            {
+                XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(m_grv_ds_hang.RowCount <= 0)
+            {
+                XtraMessageBox.Show("Chưa có hàng để nhập", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
         }
         #endregion
 
@@ -67,6 +99,35 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         {
             Load += f100_phieu_nhap_kho_Load;
             KeyDown += f100_phieu_nhap_kho_KeyDown;
+            m_cmd_delete.Click += m_cmd_delete_Click;
+            m_cmd_lap_phieu.Click += m_cmd_lap_phieu_Click;
+        }
+
+        void m_cmd_lap_phieu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lap_phieu();
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
+        }
+
+        void m_cmd_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = (BO_HANG)m_grv_ds_hang.GetRow(m_grv_ds_hang.FocusedRowHandle);
+                m_ds_hang.Remove(item);
+
+                fill_data_to_grid_hang();
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void f100_phieu_nhap_kho_KeyDown(object sender, KeyEventArgs e)
