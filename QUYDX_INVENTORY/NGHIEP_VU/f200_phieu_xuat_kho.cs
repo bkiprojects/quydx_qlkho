@@ -199,6 +199,20 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_txt_barcode.Leave += m_txt_barcode_Leave;
             m_dat_tu_ngay_bh.EditValueChanged += m_dat_tu_ngay_bh_EditValueChanged;
             m_dat_den_ngay_bh.EditValueChanged += m_dat_den_ngay_bh_EditValueChanged;
+            m_cmd_in_bao_hanh.Click += m_cmd_in_bao_hanh_Click;
+        }
+
+        void m_cmd_in_bao_hanh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch(Exception)
+            {
+                
+                throw;
+            }
         }
 
         void m_dat_den_ngay_bh_EditValueChanged(object sender, EventArgs e)
