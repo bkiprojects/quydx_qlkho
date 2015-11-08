@@ -93,11 +93,11 @@
     <Compile Include="NGHIEP_VU\f100_phieu_nhap_kho.Designer.cs">
       <DependentUpon>f100_phieu_nhap_kho.cs</DependentUpon>
     </Compile>
-    <Compile Include="NGHIEP_VU\f101_phieu_nhap_kho_de.cs">
+    <Compile Include="NGHIEP_VU\f200_phieu_xuat_kho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NGHIEP_VU\f101_phieu_nhap_kho_de.Designer.cs">
-      <DependentUpon>f101_phieu_nhap_kho_de.cs</DependentUpon>
+    <Compile Include="NGHIEP_VU\f200_phieu_xuat_kho.Designer.cs">
+      <DependentUpon>f200_phieu_xuat_kho.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,8 +110,8 @@
     <EmbeddedResource Include="NGHIEP_VU\f100_phieu_nhap_kho.resx">
       <DependentUpon>f100_phieu_nhap_kho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NGHIEP_VU\f101_phieu_nhap_kho_de.resx">
-      <DependentUpon>f101_phieu_nhap_kho_de.cs</DependentUpon>
+    <EmbeddedResource Include="NGHIEP_VU\f200_phieu_xuat_kho.resx">
+      <DependentUpon>f200_phieu_xuat_kho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

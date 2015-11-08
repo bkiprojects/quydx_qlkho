@@ -8,6 +8,8 @@ using DAL.Repository;
 using BO;
 using System.ComponentModel;
 using COMMON;
+using MODEL.NHAP;
+using MODEL.XUAT;
 namespace BSL.HANG_SERVICE
 {
     public class BS_MAT_HANG
@@ -34,6 +36,31 @@ namespace BSL.HANG_SERVICE
                 return uow.Repository<DM_MAT_HANG>().GetAll().ToList();
             }
         }
+        public GD_HANG LayEntity(string barcode)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                if(!IsExistBarcode(barcode))
+                {
+                    return null;
+                }
+                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode).Single();
+                return entity;
+            }
+        }
+        public BO_HANG LayBOHang(string barcode)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                if(!IsExistBarcode(barcode))
+                {
+                    return null;
+                }
+                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode).Single();
+                var output = convert_to_BO(entity);
+                return output;
+            }
+        }
         public bool IsExistBarcode(string ip_str_barcode)
         {
             using(var uow = new UnitOfWork())
@@ -46,17 +73,32 @@ namespace BSL.HANG_SERVICE
                 return false;
             }
         }
-        public void LapPhieuNhap(BindingList<BO_HANG> ip_lst_to_insert)
+        public void LapPhieuNhap(GD_PHIEU_NHAP phieu_nhap, BindingList<BO_HANG> ip_lst_to_insert)
         {
             using(var uow = new UnitOfWork())
             {
+                uow.Repository<GD_PHIEU_NHAP>().Insert(phieu_nhap);
+
                 foreach(var item in ip_lst_to_insert)
                 {
                     var entity = convert_to_entity_insert(item);
                     uow.Repository<GD_HANG>().Insert(entity);
-                    uow.Save();
                 }
-
+                uow.Save();
+            }
+        }
+        public void LapPhieuXuat(GD_PHIEU_XUAT phieu_xuat, BindingList<GD_HANG> ip_lst_to_insert)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                uow.Repository<GD_PHIEU_XUAT>().Insert(phieu_xuat);
+                foreach(var item in ip_lst_to_insert)
+                {
+                    item.ObjectState = MODEL.Common.ObjectState.Modified;
+                    item.ID_TRANG_THAI = Convert.ToInt64(ReadDataConfig.ReadByKey("XUAT_KHO"));
+                    uow.Repository<GD_HANG>().Update(item);
+                }
+                uow.Save();
             }
         }
         private GD_HANG convert_to_entity_insert(BO_HANG ip_obj_bo)
@@ -73,6 +115,19 @@ namespace BSL.HANG_SERVICE
             obj_result.THOI_GIAN_BAO_HANH = ip_obj_bo.THOI_GIAN_BAO_HANH;
             obj_result.NGAY_NHAT_HANG = ip_obj_bo.NGAY_NHAP_HANG;
             return obj_result;
+        }
+        private BO_HANG convert_to_BO(GD_HANG entity)
+        {
+            BO_HANG output = new BO_HANG();
+            output.BARCODE = entity.BARCODE;
+            output.GIA_NHAP = entity.GIA_NHAP;
+            output.GIA_XUAT_DE_XUAT = entity.GIA_XUAT_DE_XUAT;
+            output.ID = entity.ID;
+            output.ID_MAT_HANG = entity.ID_MAT_HANG;
+            output.THOI_GIAN_BAO_HANH = entity.THOI_GIAN_BAO_HANH;
+            output.NGAY_NHAP_HANG = entity.NGAY_NHAT_HANG;
+
+            return output;
         }
     }
 }

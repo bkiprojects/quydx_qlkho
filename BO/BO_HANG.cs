@@ -17,6 +17,6 @@ namespace BO
         public int THOI_GIAN_BAO_HANH { get; set; }
 
         public string BARCODE { get; set; }
-        public DateTime NGAY_NHAP_HANG { get; set; }
+        public DateTime? NGAY_NHAP_HANG { get; set; }
     }
 }

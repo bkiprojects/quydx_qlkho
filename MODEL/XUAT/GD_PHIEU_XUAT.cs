@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MODEL.XUAT
 {
-    public class GD_PHIEU_XUAT : Entity
+    public class GD_PHIEU_XUAT : CHUNG_TU_INFO
     {
 
     }

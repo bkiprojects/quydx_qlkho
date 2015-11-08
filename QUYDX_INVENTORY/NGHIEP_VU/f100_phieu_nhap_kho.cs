@@ -14,6 +14,7 @@ using DevExpress.XtraEditors;
 using COMMON;
 using MODEL.HANG;
 using BSL.HANG_SERVICE;
+using MODEL.NHAP;
 namespace QUYDX_INVENTORY.NGHIEP_VU
 {
     public partial class f100_phieu_nhap_kho : Form
@@ -151,7 +152,14 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 XtraMessageBox.Show("Chưa có hàng để nhập", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            BS_MAT_HANG.Instance.LapPhieuNhap(m_lst_hang);
+            var phieu_nhap = new GD_PHIEU_NHAP()
+            {
+                SO_CHUNG_TU = m_txt_so_phieu_nhap.Text,
+                NGAY_CHUNG_TU = m_dat_ngay_nhap_kho.DateTime,
+                ID_NHAN_VIEN_LIEN_QUAN = (long) m_sle_nhan_vien.EditValue,
+                NGAY_NHAP_PHAN_MEM = DateTime.Now.Date
+            };
+            BS_MAT_HANG.Instance.LapPhieuNhap(phieu_nhap, m_lst_hang);
             var dlg = XtraMessageBox.Show("Lập phiếu nhập thành công! Bạn muốn lập phiếu nhập mới?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dlg == System.Windows.Forms.DialogResult.OK)
             {
