@@ -104,6 +104,9 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             }
             var item = BS_MAT_HANG.Instance.LayEntity(m_txt_barcode.Text);
             item.GIA_XUAT = (decimal) m_txt_gia_xuat_thuc_te.EditValue;
+            item.NGAY_BAT_DAU_BAO_HANH = m_dat_tu_ngay_bh.DateTime;
+            item.NGAY_KET_THUC_BAO_HANH = m_dat_den_ngay_bh.DateTime;
+            item.THOI_GIAN_BAO_HANH = (int) m_txt_thoi_gian_bao_hanh.EditValue;
             m_lst_hang.Add(item);
 
             fill_data_to_grid_hang();
@@ -124,12 +127,18 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             var obj_bo = BS_MAT_HANG.Instance.LayBOHang(barcode);
             m_txt_gia_xuat_thuc_te.EditValue = obj_bo.GIA_XUAT_DE_XUAT;
             m_txt_gia_xuat_de_xuat.EditValue = obj_bo.GIA_XUAT_DE_XUAT;
+            m_txt_thoi_gian_bao_hanh.EditValue = obj_bo.THOI_GIAN_BAO_HANH;
+            m_dat_tu_ngay_bh.DateTime = DateTime.Now.Date;
+            m_dat_den_ngay_bh.DateTime = DateTime.Now.Date.AddMonths((int)m_txt_thoi_gian_bao_hanh.EditValue);
         }
         private void reset_xuat_hang()
         {
             m_txt_barcode.ResetText();
             m_txt_gia_xuat_thuc_te.ResetText();
             m_txt_gia_xuat_de_xuat.ResetText();
+            m_txt_thoi_gian_bao_hanh.ResetText();
+            m_dat_tu_ngay_bh.ResetText();
+            m_dat_den_ngay_bh.ResetText();
             m_txt_barcode.Focus();
         }
         private void reset_phieu_nhap()
@@ -188,6 +197,40 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_cmd_delete.Click += m_cmd_delete_Click;
             m_txt_barcode.EditValueChanged += m_txt_barcode_EditValueChanged;
             m_txt_barcode.Leave += m_txt_barcode_Leave;
+            m_dat_tu_ngay_bh.EditValueChanged += m_dat_tu_ngay_bh_EditValueChanged;
+            m_dat_den_ngay_bh.EditValueChanged += m_dat_den_ngay_bh_EditValueChanged;
+        }
+
+        void m_dat_den_ngay_bh_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(m_txt_barcode.Text))
+                {
+                    return;
+                }
+                m_dat_tu_ngay_bh.DateTime = m_dat_den_ngay_bh.DateTime.AddMonths(-(int)m_txt_thoi_gian_bao_hanh.EditValue);
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
+        }
+
+        void m_dat_tu_ngay_bh_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(m_txt_barcode.Text))
+                {
+                    return;
+                }
+                m_dat_den_ngay_bh.DateTime = m_dat_tu_ngay_bh.DateTime.AddMonths((int)m_txt_thoi_gian_bao_hanh.EditValue);
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void m_txt_barcode_Leave(object sender, EventArgs e)
