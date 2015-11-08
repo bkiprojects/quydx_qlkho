@@ -28,7 +28,18 @@ namespace BSL.HANG_SERVICE
             }
         }
         #endregion
-
+        public bool IsXuatKho(string barcode)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode).Single();
+                if(entity.ID_TRANG_THAI == Convert.ToInt64(ReadDataConfig.ReadByKey("NHAP_KHO")))
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
         public List<DM_MAT_HANG> GetListMatHang()
         {
             using(var uow = new UnitOfWork())

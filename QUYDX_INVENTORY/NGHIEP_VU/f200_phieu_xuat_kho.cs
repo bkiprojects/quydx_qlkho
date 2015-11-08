@@ -21,7 +21,6 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
     public partial class f200_phieu_xuat_kho : Form
     {
         private BindingList<GD_HANG> m_lst_hang;
-
         #region Public Interface
         public f200_phieu_xuat_kho()
         {
@@ -42,6 +41,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_lst_hang = new BindingList<GD_HANG>();
             fill_data_to_sle_nhan_vien();
             fill_data_to_le_kho();
+            fill_data_to_sle_khach_hang();
         }
         private void fill_data_to_sle_nhan_vien()
         {
@@ -56,6 +56,10 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_grd_ds_hang.DataSource = m_lst_hang;
             m_grd_ds_hang.RefreshDataSource();
         }
+        private void fill_data_to_sle_khach_hang()
+        {
+            m_sle_khach_hang.Properties.DataSource = BS_KhachHang.Instance.GetListKhachHang();
+        }
         private bool is_exist_barcode_in_csdl(string ip_str_barcode)
         {
             if(BS_MAT_HANG.Instance.IsExistBarcode(ip_str_barcode))
@@ -68,6 +72,12 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             {
                 return true;
             }
+            return false;
+        }
+        private bool is_xuat_kho(string barcode)
+        {
+            if(BS_MAT_HANG.Instance.IsXuatKho(barcode))
+                return true;
             return false;
         }
         private void add_item()
@@ -87,7 +97,13 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 XtraMessageBox.Show("Barcode đã tồn tại trong phiếu xuất này", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if(is_xuat_kho(m_txt_barcode.Text))
+            {
+                 XtraMessageBox.Show("Barcode này không có trong kho hoặc đã xuất", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var item = BS_MAT_HANG.Instance.LayEntity(m_txt_barcode.Text);
+            item.GIA_XUAT = (decimal) m_txt_gia_xuat_thuc_te.EditValue;
             m_lst_hang.Add(item);
 
             fill_data_to_grid_hang();
@@ -95,6 +111,16 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
         private void fill_data_suggest(string barcode)
         {
+            if(!is_exist_barcode_in_csdl(m_txt_barcode.Text))
+            {
+                XtraMessageBox.Show("Không có barcode này trong CSDL", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(is_exist_barcode_in_qua_trinh_nhap(m_txt_barcode.Text))
+            {
+                XtraMessageBox.Show("Barcode này đã có trên lưới rồi", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var obj_bo = BS_MAT_HANG.Instance.LayBOHang(barcode);
             m_txt_gia_xuat_thuc_te.EditValue = obj_bo.GIA_XUAT_DE_XUAT;
             m_txt_gia_xuat_de_xuat.EditValue = obj_bo.GIA_XUAT_DE_XUAT;
@@ -134,7 +160,8 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 SO_CHUNG_TU = m_txt_so_phieu.Text,
                 NGAY_CHUNG_TU = m_dat_ngay_chung_tu.DateTime,
                 ID_NHAN_VIEN_LIEN_QUAN = (long)m_sle_nhan_vien.EditValue,
-                NGAY_NHAP_PHAN_MEM = DateTime.Now.Date
+                NGAY_NHAP_PHAN_MEM = DateTime.Now.Date,
+                ID_KHACH_HANG = (long?) m_sle_khach_hang.EditValue
             };
             BS_MAT_HANG.Instance.LapPhieuXuat(phieu_xuat, m_lst_hang);
             var dlg = XtraMessageBox.Show("Lập phiếu nhập thành công! Bạn muốn lập phiếu nhập mới?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -160,23 +187,35 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_cmd_insert.Click += m_cmd_insert_Click;
             m_cmd_delete.Click += m_cmd_delete_Click;
             m_txt_barcode.EditValueChanged += m_txt_barcode_EditValueChanged;
+            m_txt_barcode.Leave += m_txt_barcode_Leave;
+        }
+
+        void m_txt_barcode_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(m_txt_barcode.Text))
+                {
+                    return;
+                }
+                if(is_xuat_kho(m_txt_barcode.Text))
+                {
+                    XtraMessageBox.Show("Barcode này không có trong kho hoặc đã xuất", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                fill_data_suggest(m_txt_barcode.Text);
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void m_txt_barcode_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
-                if(!is_exist_barcode_in_csdl(m_txt_barcode.Text))
-                {
-                    XtraMessageBox.Show("Không có barcode này trong CSDL", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if(is_exist_barcode_in_qua_trinh_nhap(m_txt_barcode.Text))
-                {
-                    XtraMessageBox.Show("Barcode này đã có trên lưới rồi", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                fill_data_suggest(m_txt_barcode.Text);
+                
             }
             catch(Exception v_e)
             {
@@ -188,7 +227,10 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         {
             try
             {
+                var item = (GD_HANG)m_grv_ds_hang.GetRow(m_grv_ds_hang.FocusedRowHandle);
+                m_lst_hang.Remove(item);
 
+                fill_data_to_grid_hang();
             }
             catch(Exception v_e)
             {
@@ -233,10 +275,14 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
 
         void f200_phieu_xuat_kho_KeyDown(object sender, KeyEventArgs e)
+        
         {
             try
             {
-
+                if(e.KeyCode == Keys.F1)
+                {
+                    add_item();
+                }
             }
             catch(Exception v_e)
             {

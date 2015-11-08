@@ -251,7 +251,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         {
             try
             {
-                if(e.KeyCode == Keys.Enter)
+                if(e.KeyCode == Keys.F1)
                 {
                     add_item();
                 }
