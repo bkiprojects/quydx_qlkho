@@ -47,9 +47,6 @@ namespace MODEL.HANG
         public DateTime? NGAY_BAT_DAU_BAO_HANH { get; private set; }
         public DateTime? NGAY_KET_THUC_BAO_HANH { get; private set; }
 
-
-        public ICollection<GD_PHU_KIEN> LIST_PHU_KIEN { get; set; }
-
         #endregion
     }
 }

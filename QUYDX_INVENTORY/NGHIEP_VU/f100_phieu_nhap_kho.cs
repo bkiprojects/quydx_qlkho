@@ -20,6 +20,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
     {
         private BindingList<BO_HANG> m_ds_hang;
         private BindingList<DM_MAT_HANG> m_ds_mat_hang;
+
         public f100_phieu_nhap_kho()
         {
             InitializeComponent();
@@ -39,6 +40,9 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             fill_data_to_sle_nhan_vien();
             fill_data_to_le_kho();
             fill_data_to_sle_mat_hang();
+
+
+            m_sle_mat_hang.EditValueChanged += m_sle_mat_hang_EditValueChanged;
         }
         private void fill_data_to_sle_nhan_vien()
         {
@@ -57,14 +61,21 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_grd_ds_hang.DataSource = m_ds_hang;
             m_grd_ds_hang.RefreshDataSource();
         }
+        
+        private void fill_data_2_edit(BO_HANG ip_obj)
+        {
+            m_sle_mat_hang.EditValue = ip_obj.ID_MAT_HANG;
+            m_txt_barcode.Text = ip_obj.BARCODE;
+
+        }
         private void add_item()
         {
             if(!ControlUtility.ValidateControlEmpty(m_sle_mat_hang, m_txt_barcode))
             {
-                XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning );
+                XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DM_MAT_HANG obj_selected = (DM_MAT_HANG) m_sle_mat_hang.Properties.View.GetRow(m_sle_mat_hang.Properties.GetIndexByKeyValue(m_sle_mat_hang.EditValue));
+            DM_MAT_HANG obj_selected = (DM_MAT_HANG)m_sle_mat_hang.Properties.View.GetRow(m_sle_mat_hang.Properties.GetIndexByKeyValue(m_sle_mat_hang.EditValue));
 
             BO_HANG item = new BO_HANG()
             {
@@ -73,7 +84,8 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 GIA_NHAP = obj_selected.GIA_NHAP_DE_XUAT,
                 GIA_XUAT_DE_XUAT = obj_selected.GIA_XUAT_DE_XUAT,
                 THOI_GIAN_BAO_HANH = obj_selected.THOI_GIAN_BAO_HANH_DE_XUAT,
-                BARCODE = m_txt_barcode.Text.Trim()
+                BARCODE = m_txt_barcode.Text.Trim(),
+                ID_MAT_HANG = obj_selected.ID
             };
             m_ds_hang.Add(item);
             fill_data_to_grid_hang();
@@ -101,6 +113,40 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             KeyDown += f100_phieu_nhap_kho_KeyDown;
             m_cmd_delete.Click += m_cmd_delete_Click;
             m_cmd_lap_phieu.Click += m_cmd_lap_phieu_Click;
+            m_grv_ds_hang.FocusedRowChanged += m_grv_ds_hang_FocusedRowChanged;
+        }
+
+        void m_grv_ds_hang_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                if(e.FocusedRowHandle < 0)
+                {
+                    return;
+                }
+                var obj_row_selected = (BO_HANG) m_grv_ds_hang.GetRow(e.FocusedRowHandle);
+                fill_data_2_edit(obj_row_selected);
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
+        }
+
+        void m_sle_mat_hang_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var id_mat_hang = (long)m_sle_mat_hang.EditValue;
+                if(id_mat_hang <= 0)
+                {
+                    return;
+                }
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void m_cmd_lap_phieu_Click(object sender, EventArgs e)

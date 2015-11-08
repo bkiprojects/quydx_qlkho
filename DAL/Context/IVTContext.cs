@@ -16,8 +16,6 @@ namespace DAL.Context
     {
         public DbSet<DM_MAT_HANG> DM_MAT_HANG { get; set; }
         public DbSet<GD_HANG> GD_HANG { get; set; }
-        public DbSet<DM_PHU_KIEN> DM_PHU_KIEN { get; set; }
-        public DbSet<GD_PHU_KIEN> GD_PHU_KIEN { get; set; }
 
         public DbSet<GD_PHIEU_NHAP> GD_PHIEU_NHAP { get; set; }
         public DbSet<GD_PHIEU_NHAP_CHI_TIET> GD_PHIEU_NHAP_CHI_TIET { get; set; }

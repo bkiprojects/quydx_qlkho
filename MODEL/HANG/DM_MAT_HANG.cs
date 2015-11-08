@@ -12,7 +12,6 @@ namespace MODEL.HANG
         #region Public Behavior
         public DM_MAT_HANG()
         {
-
         }
         #endregion
 
@@ -26,7 +25,6 @@ namespace MODEL.HANG
         public decimal GIA_XUAT_DE_XUAT { get; private set; }
         public int THOI_GIAN_BAO_HANH_DE_XUAT { get; private set; }
 
-        public ICollection<GD_HANG> LIST_HANG { get; private set; }
         #endregion
     }
 }
