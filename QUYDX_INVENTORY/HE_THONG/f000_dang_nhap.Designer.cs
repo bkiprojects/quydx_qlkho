@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.m_cmd_dang_nhap = new DevExpress.XtraEditors.SimpleButton();
-            this.m_cmd_thoat = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.m_txt_mat_khau = new DevExpress.XtraEditors.TextEdit();
             this.m_txt_ten_dang_nhap = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.m_cmd_dang_nhap = new DevExpress.XtraEditors.SimpleButton();
+            this.m_cmd_thoat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -58,26 +58,6 @@
             this.panelControl1.Size = new System.Drawing.Size(319, 42);
             this.panelControl1.TabIndex = 1;
             // 
-            // m_cmd_dang_nhap
-            // 
-            this.m_cmd_dang_nhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.m_cmd_dang_nhap.Appearance.Options.UseFont = true;
-            this.m_cmd_dang_nhap.Dock = System.Windows.Forms.DockStyle.Right;
-            this.m_cmd_dang_nhap.Location = new System.Drawing.Point(129, 2);
-            this.m_cmd_dang_nhap.Name = "m_cmd_dang_nhap";
-            this.m_cmd_dang_nhap.Size = new System.Drawing.Size(94, 38);
-            this.m_cmd_dang_nhap.TabIndex = 1;
-            this.m_cmd_dang_nhap.Text = "Đăng nhập";
-            // 
-            // m_cmd_thoat
-            // 
-            this.m_cmd_thoat.Dock = System.Windows.Forms.DockStyle.Right;
-            this.m_cmd_thoat.Location = new System.Drawing.Point(223, 2);
-            this.m_cmd_thoat.Name = "m_cmd_thoat";
-            this.m_cmd_thoat.Size = new System.Drawing.Size(94, 38);
-            this.m_cmd_thoat.TabIndex = 0;
-            this.m_cmd_thoat.Text = "Thoát";
-            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.m_txt_mat_khau);
@@ -87,7 +67,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(319, 143);
-            this.layoutControl1.TabIndex = 2;
+            this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // m_txt_mat_khau
@@ -99,7 +79,7 @@
             this.m_txt_mat_khau.Properties.UseSystemPasswordChar = true;
             this.m_txt_mat_khau.Size = new System.Drawing.Size(295, 26);
             this.m_txt_mat_khau.StyleController = this.layoutControl1;
-            this.m_txt_mat_khau.TabIndex = 5;
+            this.m_txt_mat_khau.TabIndex = 1;
             // 
             // m_txt_ten_dang_nhap
             // 
@@ -110,7 +90,7 @@
             this.m_txt_ten_dang_nhap.Properties.Appearance.Options.UseFont = true;
             this.m_txt_ten_dang_nhap.Size = new System.Drawing.Size(295, 26);
             this.m_txt_ten_dang_nhap.StyleController = this.layoutControl1;
-            this.m_txt_ten_dang_nhap.TabIndex = 4;
+            this.m_txt_ten_dang_nhap.TabIndex = 0;
             // 
             // layoutControlGroup1
             // 
@@ -152,6 +132,29 @@
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(107, 19);
             // 
+            // m_cmd_dang_nhap
+            // 
+            this.m_cmd_dang_nhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.m_cmd_dang_nhap.Appearance.Options.UseFont = true;
+            this.m_cmd_dang_nhap.Dock = System.Windows.Forms.DockStyle.Right;
+            this.m_cmd_dang_nhap.Image = global::QUYDX_INVENTORY.Properties.Resources.go;
+            this.m_cmd_dang_nhap.Location = new System.Drawing.Point(113, 2);
+            this.m_cmd_dang_nhap.Name = "m_cmd_dang_nhap";
+            this.m_cmd_dang_nhap.Size = new System.Drawing.Size(102, 38);
+            this.m_cmd_dang_nhap.TabIndex = 0;
+            this.m_cmd_dang_nhap.Text = "Đăng nhập";
+            // 
+            // m_cmd_thoat
+            // 
+            this.m_cmd_thoat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.m_cmd_thoat.Image = global::QUYDX_INVENTORY.Properties.Resources.Exit;
+            this.m_cmd_thoat.Location = new System.Drawing.Point(215, 2);
+            this.m_cmd_thoat.Name = "m_cmd_thoat";
+            this.m_cmd_thoat.Size = new System.Drawing.Size(102, 38);
+            this.m_cmd_thoat.TabIndex = 1;
+            this.m_cmd_thoat.Text = "Thoát";
+            this.m_cmd_thoat.Click += new System.EventHandler(this.m_cmd_thoat_Click);
+            // 
             // f000_dang_nhap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -161,7 +164,7 @@
             this.KeyPreview = true;
             this.Name = "f000_dang_nhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng nhập";
+            this.Text = "ĐĂNG NHẬP";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -27,7 +27,7 @@ namespace DAL.Context
         public IVTContext()
             : base("name=IVTContext")
         {
-           // Database.SetInitializer(new MigrateLastest());
+           //Database.SetInitializer(new MigrateLastest());
             // Database.SetInitializer<PMSContext>(new CreateDatabaseIfNotExists<PMSContext>());
             // Database.SetInitializer<PMSContext>(null);
             this.Configuration.LazyLoadingEnabled = true;

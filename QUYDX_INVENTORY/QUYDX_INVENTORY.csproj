@@ -165,6 +165,18 @@
   <ItemGroup>
     <None Include="Resources\delete.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\go.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue tag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address book.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

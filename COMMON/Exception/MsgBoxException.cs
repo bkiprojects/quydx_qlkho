@@ -22,5 +22,18 @@ namespace COMMON.Exception
             InitializeComponent();
             m_lbl_msg.Text = ip_exception.Message;
         }
+
+
+        private void m_cmd_exit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Dispose();
+            }
+            catch(System.Exception)
+            {
+                XtraMessageBox.Show("Có lỗi xảy ra");
+            }
+        }
     }
 }

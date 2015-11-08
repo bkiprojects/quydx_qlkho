@@ -20,32 +20,32 @@ namespace MODEL.HANG
         #endregion
 
         #region Property
-        public long ID { get; private set; }
+        public long ID { get; set; }
 
-        public long? ID_MAT_HANG { get; private set; }
+        public long? ID_MAT_HANG { get; set; }
         [ForeignKey("ID_MAT_HANG")]
-        public DM_MAT_HANG DM_MAT_HANG { get; private set; }
+        public DM_MAT_HANG DM_MAT_HANG { get; set; }
 
-        public string BARCODE { get; private set; }
-        public string TEN_HANG { get; private set; }
+        public string BARCODE { get; set; }
+        public string TEN_HANG { get; set; }
 
 
-        public long? ID_TRANG_THAI { get; private set; }
+        public long? ID_TRANG_THAI { get; set; }
         [ForeignKey("ID_TRANG_THAI")]
-        public TU_DIEN TRANG_THAI { get; private set; }
+        public TU_DIEN TRANG_THAI { get; set; }
 
 
-        public decimal GIA_NHAP { get; private set; }
-        public decimal GIA_XUAT_DE_XUAT { get; private set; }
-        public decimal GIA_XUAT { get; private set; }
-        public int THOI_GIAN_BAO_HANH { get; private set; }
+        public decimal GIA_NHAP { get; set; }
+        public decimal GIA_XUAT_DE_XUAT { get; set; }
+        public decimal GIA_XUAT { get; set; }
+        public int THOI_GIAN_BAO_HANH { get; set; }
         
 
-        public DateTime? NGAY_NHAT_HANG { get; private set; }
-        public DateTime? NGAY_XUAT_HANG { get; private set; }
+        public DateTime? NGAY_NHAT_HANG { get; set; }
+        public DateTime? NGAY_XUAT_HANG { get; set; }
 
-        public DateTime? NGAY_BAT_DAU_BAO_HANH { get; private set; }
-        public DateTime? NGAY_KET_THUC_BAO_HANH { get; private set; }
+        public DateTime? NGAY_BAT_DAU_BAO_HANH { get; set; }
+        public DateTime? NGAY_KET_THUC_BAO_HANH { get; set; }
 
         #endregion
     }

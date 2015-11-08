@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Context
 {
-    //public class MigrateLastest : MigrateDatabaseToLatestVersion<IVTContext, DataAccess.Migrations.Configuration>
-    //{
+    public class MigrateLastest : MigrateDatabaseToLatestVersion<IVTContext, DAL.Migrations.Configuration>
+    {
 
-    //}
+    }
 }

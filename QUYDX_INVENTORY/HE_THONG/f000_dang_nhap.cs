@@ -42,5 +42,18 @@ namespace QUYDX_INVENTORY.HE_THONG
                 ExceptionHandle.Show(v_e);
             }
         }
+
+        private void m_cmd_thoat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Dispose();
+            }
+            catch(Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

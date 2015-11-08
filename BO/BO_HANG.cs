@@ -9,7 +9,7 @@ namespace BO
     public class BO_HANG
     {
         public long ID { get; set; }
-        public decimal ID_MAT_HANG { get; set; }
+        public long? ID_MAT_HANG { get; set; }
         public string TEN_MAT_HANG { get; set; }
         public decimal GIA_NHAP { get; set; }
         public decimal GIA_XUAT_DE_XUAT { get; set; }
@@ -17,5 +17,6 @@ namespace BO
         public int THOI_GIAN_BAO_HANH { get; set; }
 
         public string BARCODE { get; set; }
+        public DateTime NGAY_NHAP_HANG { get; set; }
     }
 }
