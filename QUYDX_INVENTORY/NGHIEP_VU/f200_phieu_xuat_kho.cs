@@ -107,6 +107,8 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             item.NGAY_BAT_DAU_BAO_HANH = m_dat_tu_ngay_bh.DateTime;
             item.NGAY_KET_THUC_BAO_HANH = m_dat_den_ngay_bh.DateTime;
             item.THOI_GIAN_BAO_HANH = (int) m_txt_thoi_gian_bao_hanh.EditValue;
+            item.ID_KHACH_HANG = (long?) m_sle_khach_hang.EditValue;
+            item.NGAY_XUAT_HANG = m_dat_ngay_chung_tu.DateTime;
             m_lst_hang.Add(item);
 
             fill_data_to_grid_hang();

@@ -18,5 +18,9 @@ namespace BO
 
         public string BARCODE { get; set; }
         public DateTime? NGAY_NHAP_HANG { get; set; }
+        public long? ID_KHACH_HANG { get; set; }
+        public DateTime? THOI_GIAN_BAT_DAU_BAO_HANH { get; set; }
+        public DateTime? THOI_GIAN_KET_THUC_BAO_HANH { get; set; }
+        public int? SO_LAN_BAO_HANH { get; set; }
     }
 }

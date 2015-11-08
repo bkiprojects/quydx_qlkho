@@ -59,6 +59,7 @@
     <Compile Include="DM_NHA_CUNG_CAP.cs" />
     <Compile Include="HANG\DM_MAT_HANG.cs" />
     <Compile Include="HANG\GD_HANG.cs" />
+    <Compile Include="NHAN_BH\GD_PHIEU_NHAN_BAO_HANH.cs" />
     <Compile Include="NHAP\GD_PHIEU_NHAP.cs" />
     <Compile Include="NHAP\GD_PHIEU_NHAP_CHI_TIET.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="TU_DIEN_DATA\LOAI_TU_DIEN.cs" />
     <Compile Include="TU_DIEN_DATA\TU_DIEN.cs" />
     <Compile Include="XUAT\GD_PHIEU_XUAT.cs" />
+    <Compile Include="XUAT\GD_PHIEU_XUAT_CHI_TIET.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

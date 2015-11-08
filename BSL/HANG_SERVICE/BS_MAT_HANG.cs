@@ -137,7 +137,12 @@ namespace BSL.HANG_SERVICE
             output.ID_MAT_HANG = entity.ID_MAT_HANG;
             output.THOI_GIAN_BAO_HANH = entity.THOI_GIAN_BAO_HANH;
             output.NGAY_NHAP_HANG = entity.NGAY_NHAT_HANG;
+            output.ID_KHACH_HANG = entity.ID_KHACH_HANG;
 
+            output.ID_KHACH_HANG = entity.ID_KHACH_HANG;
+            output.THOI_GIAN_BAT_DAU_BAO_HANH = entity.NGAY_BAT_DAU_BAO_HANH;
+            output.THOI_GIAN_KET_THUC_BAO_HANH = entity.NGAY_KET_THUC_BAO_HANH;
+            output.SO_LAN_BAO_HANH = entity.SO_LAN_BAO_HANH;
             return output;
         }
     }

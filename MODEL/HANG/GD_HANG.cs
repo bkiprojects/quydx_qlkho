@@ -47,6 +47,11 @@ namespace MODEL.HANG
         public DateTime? NGAY_BAT_DAU_BAO_HANH { get; set; }
         public DateTime? NGAY_KET_THUC_BAO_HANH { get; set; }
 
+        public long? ID_KHACH_HANG { get; set; }
+        [ForeignKey("ID_KHACH_HANG")]
+        public DM_KHACH_HANG DM_KHACH_HANG { get; set; }
+
+        public int? SO_LAN_BAO_HANH { get; set; }
         #endregion
     }
 }
