@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityFramework.DynamicFilters;
 using MODEL.XUAT;
+using MODEL.NHAN_BH;
 namespace DAL.Context
 {
     public class IVTContext : DbContext, IDisposable
@@ -27,6 +28,7 @@ namespace DAL.Context
         public DbSet<DM_NHA_CUNG_CAP> DM_NHA_CUNG_CAP { get; set; }
 
         public DbSet<GD_PHIEU_XUAT> GD_PHIEU_XUAT { get; set; }
+        public DbSet<GD_PHIEU_NHAN_BAO_HANH> GD_PHIEU_NHAN_BAO_HANH { get; set; }
         public IVTContext()
             : base("name=IVTContext")
         {

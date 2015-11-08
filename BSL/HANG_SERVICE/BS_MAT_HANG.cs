@@ -10,6 +10,7 @@ using System.ComponentModel;
 using COMMON;
 using MODEL.NHAP;
 using MODEL.XUAT;
+using MODEL.NHAN_BH;
 namespace BSL.HANG_SERVICE
 {
     public class BS_MAT_HANG
@@ -109,6 +110,17 @@ namespace BSL.HANG_SERVICE
                     item.ID_TRANG_THAI = Convert.ToInt64(ReadDataConfig.ReadByKey("XUAT_KHO"));
                     uow.Repository<GD_HANG>().Update(item);
                 }
+                uow.Save();
+            }
+        }
+        public void LapPhieuNhanBaoHanh(GD_PHIEU_NHAN_BAO_HANH phieu_nhan_bh, string barcode)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                uow.Repository<GD_PHIEU_NHAN_BAO_HANH>().Insert(phieu_nhan_bh);
+                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode).Single();
+                entity.ID_TRANG_THAI = Convert.ToInt64(ReadDataConfig.ReadByKey("GUI_BAO_HANH"));
+                entity.SO_LAN_BAO_HANH = entity.SO_LAN_BAO_HANH + 1;
                 uow.Save();
             }
         }

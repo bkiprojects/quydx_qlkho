@@ -3,6 +3,7 @@ using BSL.HANG_SERVICE;
 using COMMON;
 using COMMON.Exception;
 using DevExpress.XtraEditors;
+using MODEL.NHAN_BH;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
 {
     public partial class f300_phieu_bao_hanh_sp : Form
     {
-        bool is_ok_lap_phieu = 0;
+        bool is_ok_lap_phieu = false;
 
         #region Public Interface
         public f300_phieu_bao_hanh_sp()
@@ -102,7 +103,25 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var phieu_nhan_bh = new 
+            var phieu_nhan_bh = new GD_PHIEU_NHAN_BAO_HANH()
+            {
+                SO_CHUNG_TU = m_txt_so_phieu.Text,
+                NGAY_CHUNG_TU = m_dat_ngay_chung_tu.DateTime,
+                ID_NHAN_VIEN_LIEN_QUAN = (long)m_sle_nhan_vien.EditValue,
+                NGAY_NHAP_PHAN_MEM = DateTime.Now.Date,
+                LAN_THU = (int) (m_txt_lan_bh.EditValue) + 1
+            };
+            BS_MAT_HANG.Instance.LapPhieuNhanBaoHanh(phieu_nhan_bh, m_txt_barcode.Text);
+            var dlg = XtraMessageBox.Show("Lập phiếu thành công! Bạn muốn lập phiếu nhập mới?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if(dlg == System.Windows.Forms.DialogResult.OK)
+            {
+                reset_nhan_hang();
+                reset_phieu_nhan_bao_hanh();
+            }
+            else
+            {
+                Dispose();
+            }
         }
         #endregion
 
@@ -120,6 +139,10 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         {
             try
             {
+                if(string.IsNullOrEmpty(m_txt_barcode.Text))
+                {
+                    return;
+                }
                 fill_data_suggest(m_txt_barcode.Text);
             }
             catch(Exception v_e)

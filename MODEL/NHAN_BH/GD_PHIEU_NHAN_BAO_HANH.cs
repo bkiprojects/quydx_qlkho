@@ -8,6 +8,6 @@ namespace MODEL.NHAN_BH
 {
     public class GD_PHIEU_NHAN_BAO_HANH : CHUNG_TU_INFO
     {
-
+        public int LAN_THU { get; set; }
     }
 }
