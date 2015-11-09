@@ -40,6 +40,17 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.m_txt_so_phieu = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.m_dat_ngay_chung_tu = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.m_sle_nhan_vien = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.MA_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TEN_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SDT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -50,7 +61,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_txt_so_phieu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dat_ngay_chung_tu.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dat_ngay_chung_tu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_sle_nhan_vien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -151,6 +172,9 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.m_sle_nhan_vien);
+            this.layoutControl1.Controls.Add(this.m_dat_ngay_chung_tu);
+            this.layoutControl1.Controls.Add(this.m_txt_so_phieu);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -164,11 +188,128 @@
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(602, 397);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
+            // 
+            // m_txt_so_phieu
+            // 
+            this.m_txt_so_phieu.Location = new System.Drawing.Point(111, 43);
+            this.m_txt_so_phieu.Name = "m_txt_so_phieu";
+            this.m_txt_so_phieu.Size = new System.Drawing.Size(467, 20);
+            this.m_txt_so_phieu.StyleController = this.layoutControl1;
+            this.m_txt_so_phieu.TabIndex = 6;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.m_txt_so_phieu;
+            this.layoutControlItem4.CustomizationFormText = "Số phiếu";
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(558, 24);
+            this.layoutControlItem4.Text = "Số phiếu";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(83, 13);
+            // 
+            // m_dat_ngay_chung_tu
+            // 
+            this.m_dat_ngay_chung_tu.EditValue = null;
+            this.m_dat_ngay_chung_tu.Location = new System.Drawing.Point(111, 67);
+            this.m_dat_ngay_chung_tu.Name = "m_dat_ngay_chung_tu";
+            this.m_dat_ngay_chung_tu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_dat_ngay_chung_tu.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_dat_ngay_chung_tu.Size = new System.Drawing.Size(467, 20);
+            this.m_dat_ngay_chung_tu.StyleController = this.layoutControl1;
+            this.m_dat_ngay_chung_tu.TabIndex = 7;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.m_dat_ngay_chung_tu;
+            this.layoutControlItem6.CustomizationFormText = "Ngày chuyển kho";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(558, 24);
+            this.layoutControlItem6.Text = "Ngày chuyển kho";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(83, 13);
+            // 
+            // m_sle_nhan_vien
+            // 
+            this.m_sle_nhan_vien.Location = new System.Drawing.Point(111, 91);
+            this.m_sle_nhan_vien.Name = "m_sle_nhan_vien";
+            this.m_sle_nhan_vien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_sle_nhan_vien.Properties.DisplayMember = "TEN_NHAN_VIEN";
+            this.m_sle_nhan_vien.Properties.NullText = "--Chọn nhân viên--";
+            this.m_sle_nhan_vien.Properties.ValueMember = "ID";
+            this.m_sle_nhan_vien.Properties.View = this.searchLookUpEdit1View;
+            this.m_sle_nhan_vien.Size = new System.Drawing.Size(467, 20);
+            this.m_sle_nhan_vien.StyleController = this.layoutControl1;
+            this.m_sle_nhan_vien.TabIndex = 8;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.MA_NHAN_VIEN,
+            this.TEN_NHAN_VIEN,
+            this.SDT});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // MA_NHAN_VIEN
+            // 
+            this.MA_NHAN_VIEN.Caption = "Mã nhân viên";
+            this.MA_NHAN_VIEN.FieldName = "MA_NHAN_VIEN";
+            this.MA_NHAN_VIEN.Name = "MA_NHAN_VIEN";
+            this.MA_NHAN_VIEN.Visible = true;
+            this.MA_NHAN_VIEN.VisibleIndex = 0;
+            this.MA_NHAN_VIEN.Width = 160;
+            // 
+            // TEN_NHAN_VIEN
+            // 
+            this.TEN_NHAN_VIEN.Caption = "Tên nhân viên";
+            this.TEN_NHAN_VIEN.FieldName = "TEN_NHAN_VIEN";
+            this.TEN_NHAN_VIEN.Name = "TEN_NHAN_VIEN";
+            this.TEN_NHAN_VIEN.Visible = true;
+            this.TEN_NHAN_VIEN.VisibleIndex = 1;
+            this.TEN_NHAN_VIEN.Width = 457;
+            // 
+            // SDT
+            // 
+            this.SDT.Caption = "SĐT";
+            this.SDT.FieldName = "SDT";
+            this.SDT.Name = "SDT";
+            this.SDT.Visible = true;
+            this.SDT.VisibleIndex = 2;
+            this.SDT.Width = 461;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.m_sle_nhan_vien;
+            this.layoutControlItem7.CustomizationFormText = "Nhân viên";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(558, 286);
+            this.layoutControlItem7.Text = "Nhân viên";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(83, 13);
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.CustomizationFormText = "Thông tin phiếu";
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4,
+            this.layoutControlItem6,
+            this.layoutControlItem7});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(582, 377);
+            this.layoutControlGroup4.Text = "Thông tin phiếu";
             // 
             // f400_phieu_chuyen_kho
             // 
@@ -189,7 +330,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_txt_so_phieu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dat_ngay_chung_tu.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dat_ngay_chung_tu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_sle_nhan_vien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +359,16 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraEditors.TextEdit m_txt_so_phieu;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.DateEdit m_dat_ngay_chung_tu;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.SearchLookUpEdit m_sle_nhan_vien;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn MA_NHAN_VIEN;
+        private DevExpress.XtraGrid.Columns.GridColumn TEN_NHAN_VIEN;
+        private DevExpress.XtraGrid.Columns.GridColumn SDT;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
     }
 }
