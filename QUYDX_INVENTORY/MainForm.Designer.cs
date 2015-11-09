@@ -41,6 +41,8 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.m_cmd_hang_trong_kho = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManager)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +55,10 @@
             this.m_cmd_phieu_nhap_kho,
             this.m_cmd_phieu_xuat_kho,
             this.m_cmd_phieu_nhan_bao_hanh,
-            this.barButtonItem4});
+            this.barButtonItem4,
+            this.m_cmd_hang_trong_kho});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -116,7 +119,8 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "NGHIỆP VỤ";
             // 
@@ -125,7 +129,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_phieu_nhap_kho);
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_phieu_xuat_kho);
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_phieu_nhan_bao_hanh);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Các loại phiếu nghiệp vụ";
             // 
@@ -140,6 +143,20 @@
             // 
             this.MdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.MdiManager.MdiParent = this;
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.m_cmd_hang_trong_kho);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "HÀNG HÓA";
+            // 
+            // m_cmd_hang_trong_kho
+            // 
+            this.m_cmd_hang_trong_kho.Caption = "Hàng trong kho";
+            this.m_cmd_hang_trong_kho.Id = 5;
+            this.m_cmd_hang_trong_kho.Name = "m_cmd_hang_trong_kho";
+            this.m_cmd_hang_trong_kho.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // MainForm
             // 
@@ -175,5 +192,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.BarButtonItem m_cmd_hang_trong_kho;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
     }
 }

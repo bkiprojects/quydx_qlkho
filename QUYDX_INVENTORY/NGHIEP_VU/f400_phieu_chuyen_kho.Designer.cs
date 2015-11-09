@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.m_cmd_danh_sach_phieu = new DevExpress.XtraEditors.SimpleButton();
-            this.m_cmd_lap_phieu = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -44,9 +42,6 @@
             this.m_dat_ngay_chung_tu = new DevExpress.XtraEditors.DateEdit();
             this.m_sle_nhan_vien = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MA_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TEN_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SDT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.m_txt_barcode = new DevExpress.XtraEditors.TextEdit();
@@ -64,6 +59,13 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.MA_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TEN_NHAN_VIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SDT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.m_cmd_danh_sach_phieu = new DevExpress.XtraEditors.SimpleButton();
+            this.m_cmd_lap_phieu = new DevExpress.XtraEditors.SimpleButton();
+            this.TEN_KHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -109,26 +111,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(602, 40);
             this.panelControl1.TabIndex = 2;
-            // 
-            // m_cmd_danh_sach_phieu
-            // 
-            this.m_cmd_danh_sach_phieu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.m_cmd_danh_sach_phieu.Image = global::QUYDX_INVENTORY.Properties.Resources.address_book;
-            this.m_cmd_danh_sach_phieu.Location = new System.Drawing.Point(99, 2);
-            this.m_cmd_danh_sach_phieu.Name = "m_cmd_danh_sach_phieu";
-            this.m_cmd_danh_sach_phieu.Size = new System.Drawing.Size(168, 36);
-            this.m_cmd_danh_sach_phieu.TabIndex = 1;
-            this.m_cmd_danh_sach_phieu.Text = "Danh sách phiếu";
-            // 
-            // m_cmd_lap_phieu
-            // 
-            this.m_cmd_lap_phieu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.m_cmd_lap_phieu.Image = global::QUYDX_INVENTORY.Properties.Resources.blue_tag;
-            this.m_cmd_lap_phieu.Location = new System.Drawing.Point(2, 2);
-            this.m_cmd_lap_phieu.Name = "m_cmd_lap_phieu";
-            this.m_cmd_lap_phieu.Size = new System.Drawing.Size(97, 36);
-            this.m_cmd_lap_phieu.TabIndex = 0;
-            this.m_cmd_lap_phieu.Text = "Lập phiếu";
             // 
             // layoutControlGroup2
             // 
@@ -275,33 +257,6 @@
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // MA_NHAN_VIEN
-            // 
-            this.MA_NHAN_VIEN.Caption = "Mã nhân viên";
-            this.MA_NHAN_VIEN.FieldName = "MA_NHAN_VIEN";
-            this.MA_NHAN_VIEN.Name = "MA_NHAN_VIEN";
-            this.MA_NHAN_VIEN.Visible = true;
-            this.MA_NHAN_VIEN.VisibleIndex = 0;
-            this.MA_NHAN_VIEN.Width = 160;
-            // 
-            // TEN_NHAN_VIEN
-            // 
-            this.TEN_NHAN_VIEN.Caption = "Tên nhân viên";
-            this.TEN_NHAN_VIEN.FieldName = "TEN_NHAN_VIEN";
-            this.TEN_NHAN_VIEN.Name = "TEN_NHAN_VIEN";
-            this.TEN_NHAN_VIEN.Visible = true;
-            this.TEN_NHAN_VIEN.VisibleIndex = 1;
-            this.TEN_NHAN_VIEN.Width = 457;
-            // 
-            // SDT
-            // 
-            this.SDT.Caption = "SĐT";
-            this.SDT.FieldName = "SDT";
-            this.SDT.Name = "SDT";
-            this.SDT.Visible = true;
-            this.SDT.VisibleIndex = 2;
-            this.SDT.Width = 461;
-            // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.CustomizationFormText = "BARCODE";
@@ -406,6 +361,9 @@
             this.m_sle_chuyen_tu_kho.Name = "m_sle_chuyen_tu_kho";
             this.m_sle_chuyen_tu_kho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_sle_chuyen_tu_kho.Properties.DisplayMember = "TEN_KHO";
+            this.m_sle_chuyen_tu_kho.Properties.ReadOnly = true;
+            this.m_sle_chuyen_tu_kho.Properties.ValueMember = "ID";
             this.m_sle_chuyen_tu_kho.Properties.View = this.gridView1;
             this.m_sle_chuyen_tu_kho.Size = new System.Drawing.Size(467, 20);
             this.m_sle_chuyen_tu_kho.StyleController = this.layoutControl1;
@@ -423,6 +381,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.TEN_KHO});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -434,6 +394,8 @@
             this.m_sle_chuyen_toi_kho.Name = "m_sle_chuyen_toi_kho";
             this.m_sle_chuyen_toi_kho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_sle_chuyen_toi_kho.Properties.DisplayMember = "TEN_KHO";
+            this.m_sle_chuyen_toi_kho.Properties.ValueMember = "ID";
             this.m_sle_chuyen_toi_kho.Properties.View = this.gridView2;
             this.m_sle_chuyen_toi_kho.Size = new System.Drawing.Size(467, 20);
             this.m_sle_chuyen_toi_kho.StyleController = this.layoutControl1;
@@ -451,6 +413,8 @@
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1});
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -467,6 +431,69 @@
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.Size = new System.Drawing.Size(582, 115);
             this.layoutControlGroup5.Text = "Thông tin chuyển kho";
+            // 
+            // MA_NHAN_VIEN
+            // 
+            this.MA_NHAN_VIEN.Caption = "Mã nhân viên";
+            this.MA_NHAN_VIEN.FieldName = "MA_NHAN_VIEN";
+            this.MA_NHAN_VIEN.Name = "MA_NHAN_VIEN";
+            this.MA_NHAN_VIEN.Visible = true;
+            this.MA_NHAN_VIEN.VisibleIndex = 0;
+            this.MA_NHAN_VIEN.Width = 160;
+            // 
+            // TEN_NHAN_VIEN
+            // 
+            this.TEN_NHAN_VIEN.Caption = "Tên nhân viên";
+            this.TEN_NHAN_VIEN.FieldName = "TEN_NHAN_VIEN";
+            this.TEN_NHAN_VIEN.Name = "TEN_NHAN_VIEN";
+            this.TEN_NHAN_VIEN.Visible = true;
+            this.TEN_NHAN_VIEN.VisibleIndex = 1;
+            this.TEN_NHAN_VIEN.Width = 457;
+            // 
+            // SDT
+            // 
+            this.SDT.Caption = "SĐT";
+            this.SDT.FieldName = "SDT";
+            this.SDT.Name = "SDT";
+            this.SDT.Visible = true;
+            this.SDT.VisibleIndex = 2;
+            this.SDT.Width = 461;
+            // 
+            // m_cmd_danh_sach_phieu
+            // 
+            this.m_cmd_danh_sach_phieu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.m_cmd_danh_sach_phieu.Image = global::QUYDX_INVENTORY.Properties.Resources.address_book;
+            this.m_cmd_danh_sach_phieu.Location = new System.Drawing.Point(99, 2);
+            this.m_cmd_danh_sach_phieu.Name = "m_cmd_danh_sach_phieu";
+            this.m_cmd_danh_sach_phieu.Size = new System.Drawing.Size(168, 36);
+            this.m_cmd_danh_sach_phieu.TabIndex = 1;
+            this.m_cmd_danh_sach_phieu.Text = "Danh sách phiếu";
+            // 
+            // m_cmd_lap_phieu
+            // 
+            this.m_cmd_lap_phieu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.m_cmd_lap_phieu.Image = global::QUYDX_INVENTORY.Properties.Resources.blue_tag;
+            this.m_cmd_lap_phieu.Location = new System.Drawing.Point(2, 2);
+            this.m_cmd_lap_phieu.Name = "m_cmd_lap_phieu";
+            this.m_cmd_lap_phieu.Size = new System.Drawing.Size(97, 36);
+            this.m_cmd_lap_phieu.TabIndex = 0;
+            this.m_cmd_lap_phieu.Text = "Lập phiếu";
+            // 
+            // TEN_KHO
+            // 
+            this.TEN_KHO.Caption = "TEN_KHO";
+            this.TEN_KHO.FieldName = "TEN_KHO";
+            this.TEN_KHO.Name = "TEN_KHO";
+            this.TEN_KHO.Visible = true;
+            this.TEN_KHO.VisibleIndex = 0;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tên kho";
+            this.gridColumn1.FieldName = "TEN_KHO";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
             // f400_phieu_chuyen_kho
             // 
@@ -553,5 +580,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn TEN_KHO;
     }
 }

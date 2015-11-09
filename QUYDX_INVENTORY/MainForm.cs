@@ -57,9 +57,26 @@ namespace QUYDX_INVENTORY
             m_cmd_phieu_nhap_kho.ItemClick += m_cmd_phieu_nhap_kho_ItemClick;
             m_cmd_phieu_xuat_kho.ItemClick += m_cmd_phieu_xuat_kho_ItemClick;
             m_cmd_phieu_nhan_bao_hanh.ItemClick += m_cmd_phieu_nhan_bao_hanh_ItemClick;
+            m_cmd_hang_trong_kho.ItemClick += m_cmd_hang_trong_kho_ItemClick;
             //Hệ thống
 
             //Bao cao
+        }
+
+        void m_cmd_hang_trong_kho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                f500_hang_trong_kho v_frm = new f500_hang_trong_kho();
+                if(IsExistFormName(v_frm)) return;
+
+                v_frm.MdiParent = this;
+                v_frm.Show();
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void m_cmd_phieu_nhan_bao_hanh_ItemClick(object sender, ItemClickEventArgs e)
