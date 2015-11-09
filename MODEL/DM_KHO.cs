@@ -1,4 +1,5 @@
 ﻿using MODEL.Common;
+using MODEL.HANG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,7 +13,10 @@ namespace MODEL
     {
 
         #region Public Behavior
-
+        public DM_KHO()
+        {
+            LIST_HANG = new HashSet<GD_HANG>();
+        }
         #endregion
 
         #region Private Behavior
@@ -28,6 +32,7 @@ namespace MODEL
         [ForeignKey("ID_THU_KHO")]
         public DM_NHAN_VIEN DM_NHAN_VIEN { get; private set; }
 
+        public ICollection<GD_HANG> LIST_HANG { get; set; }
         #endregion
     }
 }

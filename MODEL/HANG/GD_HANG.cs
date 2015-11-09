@@ -51,6 +51,10 @@ namespace MODEL.HANG
         [ForeignKey("ID_KHACH_HANG")]
         public DM_KHACH_HANG DM_KHACH_HANG { get; set; }
 
+        public long? ID_KHO { get; set; }
+        [ForeignKey("ID_KHO")]
+        public DM_KHO DM_KHO { get; set; }
+
         public int? SO_LAN_BAO_HANH { get; set; }
         #endregion
     }
