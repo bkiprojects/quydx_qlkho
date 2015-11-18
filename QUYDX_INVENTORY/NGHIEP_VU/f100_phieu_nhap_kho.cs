@@ -77,6 +77,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
         private void reset_nhap_hang()
         {
+            //m_lst_hang = new BindingList<BO_HANG>();
             m_sle_mat_hang.EditValue = null;
             m_txt_barcode.ResetText();
             m_txt_gia_nhap.ResetText();
@@ -165,6 +166,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             {
                 reset_nhap_hang();
                 reset_phieu_nhap();
+                m_lst_hang = new BindingList<BO_HANG>();
             }
             else
             {

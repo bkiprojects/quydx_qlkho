@@ -56,6 +56,7 @@ namespace MODEL.HANG
         public DM_KHO DM_KHO { get; set; }
 
         public int? SO_LAN_BAO_HANH { get; set; }
+
         #endregion
     }
 }

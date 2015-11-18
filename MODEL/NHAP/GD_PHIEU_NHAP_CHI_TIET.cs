@@ -12,7 +12,6 @@ namespace MODEL.NHAP
     public class GD_PHIEU_NHAP_CHI_TIET : Entity
     {
         #region Public Behavior
-
         #endregion
 
         #region Private Behavior
@@ -22,17 +21,13 @@ namespace MODEL.NHAP
         #region Property
         public long ID { get; private set; }
 
-        public long ID_GD_PHIEU_NHAP { get; private set; }
+        public long ID_GD_PHIEU_NHAP { get; set; }
         [ForeignKey("ID_GD_PHIEU_NHAP")]
-        public GD_PHIEU_NHAP GD_PHIEU_NHAP { get; private set; }
+        public GD_PHIEU_NHAP GD_PHIEU_NHAP { get; set; }
 
-        public long ID_HANG { get; private set; }
+        public long ID_HANG { get; set; }
         [ForeignKey("ID_HANG")]
-        public GD_HANG GD_HANG { get; private set; }
-
-        public decimal GIA_NHAP { get; private set; }
-        public decimal GIA_XUAT_DE_XUAT { get; private set; }
-        public int THOI_HAN_BAO_HANH { get; private set; }
+        public GD_HANG GD_HANG { get; set; }
         #endregion
     }
 }

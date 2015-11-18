@@ -95,6 +95,12 @@ namespace BSL.HANG_SERVICE
                 {
                     var entity = convert_to_entity_insert(item);
                     uow.Repository<GD_HANG>().Insert(entity);
+
+                    var chiTietPhieu = new GD_PHIEU_NHAP_CHI_TIET();
+                    chiTietPhieu.ObjectState = MODEL.Common.ObjectState.Added;
+                    uow.Repository<GD_PHIEU_NHAP_CHI_TIET>().SaveWithSyncObjectState(chiTietPhieu);
+                    chiTietPhieu.GD_HANG = entity;
+
                 }
                 uow.Save();
             }

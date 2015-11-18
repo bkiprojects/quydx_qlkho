@@ -11,6 +11,10 @@ namespace MODEL
 {
     public class CHUNG_TU_INFO : Entity
     {
+        public CHUNG_TU_INFO()
+        {
+
+        }
         public long ID { get; set; }
         public string SO_CHUNG_TU { get; set; }
         public DateTime NGAY_CHUNG_TU { get; set; }

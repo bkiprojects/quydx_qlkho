@@ -127,7 +127,8 @@ namespace DAL.Repository
 
         public virtual void SaveWithSyncObjectState(TEntity entityToSave)
         {
-            _context.Entry(entityToSave).State = EntityState.Added;
+            //entityToSave.ObjectState = ObjectState.Added;
+            _dbSet.Add(entityToSave);
             _context.SyncObjectState(entityToSave);
         }
         public void SaveWithSyncObjectState(IEnumerable<TEntity> listEntityToSave)

@@ -11,7 +11,9 @@ namespace MODEL.NHAP
     {
 
         #region Public Behavior
-
+        public GD_PHIEU_NHAP()
+        {
+        }
         #endregion
 
         #region Private Behavior
@@ -19,7 +21,6 @@ namespace MODEL.NHAP
         #endregion
 
         #region Property
-
         #endregion
     }
 }
