@@ -29,6 +29,7 @@ namespace DAL.Context
 
         public DbSet<GD_PHIEU_XUAT> GD_PHIEU_XUAT { get; set; }
         public DbSet<GD_PHIEU_NHAN_BAO_HANH> GD_PHIEU_NHAN_BAO_HANH { get; set; }
+        public DbSet<GD_PHIEU_XUAT_CHI_TIET> GD_PHIEU_XUAT_CHI_TIET { get; set; } 
         public IVTContext()
             : base("name=IVTContext")
         {

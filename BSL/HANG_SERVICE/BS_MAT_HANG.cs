@@ -115,6 +115,11 @@ namespace BSL.HANG_SERVICE
                     item.ObjectState = MODEL.Common.ObjectState.Modified;
                     item.ID_TRANG_THAI = Convert.ToInt64(ReadDataConfig.ReadByKey("XUAT_KHO"));
                     uow.Repository<GD_HANG>().Update(item);
+
+                    var chiTietPhieu = new GD_PHIEU_XUAT_CHI_TIET();
+                    chiTietPhieu.ObjectState = MODEL.Common.ObjectState.Added;
+                    uow.Repository<GD_PHIEU_XUAT_CHI_TIET>().SaveWithSyncObjectState(chiTietPhieu);
+                    chiTietPhieu.GD_HANG = item;
                 }
                 uow.Save();
             }

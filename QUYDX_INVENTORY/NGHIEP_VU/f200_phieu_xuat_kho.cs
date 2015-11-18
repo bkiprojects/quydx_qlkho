@@ -180,6 +180,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             {
                 reset_xuat_hang();
                 reset_phieu_nhap();
+                m_lst_hang = new BindingList<GD_HANG>();
             }
             else
             {
@@ -250,7 +251,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
 
         void m_txt_barcode_Leave(object sender, EventArgs e)
-        {
+            {
             try
             {
                 if(string.IsNullOrEmpty(m_txt_barcode.Text))
