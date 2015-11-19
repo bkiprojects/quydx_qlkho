@@ -46,11 +46,15 @@ namespace BSL.HANG_SERVICE
             }
             return resultList;
         }
-        public bool IsXuatKho(string barcode)
+        public bool IsXuatKho(string barcode, long id_kho)
         {
             using(var uow = new UnitOfWork())
             {
-                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode).Single();
+                var entity = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == barcode && x.ID_KHO == id_kho).SingleOrDefault();
+                if(entity == null)
+                {
+                    return false;
+                }
                 if(entity.ID_TRANG_THAI == Convert.ToInt64(ReadDataConfig.ReadByKey("NHAP_KHO")))
                 {
                     return false;

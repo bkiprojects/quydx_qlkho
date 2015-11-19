@@ -110,6 +110,7 @@
             this.m_grv_hang.GridControl = this.m_grc_hang;
             this.m_grv_hang.GroupCount = 1;
             this.m_grv_hang.Name = "m_grv_hang";
+            this.m_grv_hang.OptionsBehavior.AutoExpandAllGroups = true;
             this.m_grv_hang.OptionsBehavior.Editable = false;
             this.m_grv_hang.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
             this.m_grv_hang.OptionsBehavior.ReadOnly = true;

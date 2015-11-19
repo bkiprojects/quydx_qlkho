@@ -76,7 +76,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
         private bool is_xuat_kho(string barcode)
         {
-            if(BS_MAT_HANG.Instance.IsXuatKho(barcode))
+            if(BS_MAT_HANG.Instance.IsXuatKho(barcode, (long) m_le_kho.EditValue))
                 return true;
             return false;
         }
@@ -256,6 +256,11 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             {
                 if(string.IsNullOrEmpty(m_txt_barcode.Text))
                 {
+                    return;
+                }
+                if(!ControlUtility.ValidateControlEmpty(m_le_kho))
+                {
+                    XtraMessageBox.Show("Chọn kho trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if(is_xuat_kho(m_txt_barcode.Text))
