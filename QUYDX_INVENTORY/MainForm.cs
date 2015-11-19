@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using COMMON.Exception;
 using QUYDX_INVENTORY.NGHIEP_VU;
+using QUYDX_INVENTORY.DANH_MUC;
 namespace QUYDX_INVENTORY
 {
     public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -61,6 +62,25 @@ namespace QUYDX_INVENTORY
             //Hệ thống
 
             //Bao cao
+
+            //Danh muc
+            m_cmd_kho.ItemClick += m_cmd_kho_ItemClick;
+        }
+
+        void m_cmd_kho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                f200_danh_muc_kho v_frm = new f200_danh_muc_kho();
+                if(IsExistFormName(v_frm)) return;
+
+                v_frm.MdiParent = this;
+                v_frm.Show();
+            }
+            catch(Exception v_e)
+            {
+                ExceptionHandle.Show(v_e);
+            }
         }
 
         void m_cmd_hang_trong_kho_ItemClick(object sender, ItemClickEventArgs e)
