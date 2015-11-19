@@ -114,6 +114,12 @@
             this.m_grv_hang.OptionsBehavior.Editable = false;
             this.m_grv_hang.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
             this.m_grv_hang.OptionsBehavior.ReadOnly = true;
+            this.m_grv_hang.OptionsFind.AlwaysVisible = true;
+            this.m_grv_hang.OptionsFind.FindDelay = 100;
+            this.m_grv_hang.OptionsFind.FindNullPrompt = "Tìm kiếm...";
+            this.m_grv_hang.OptionsFind.ShowClearButton = false;
+            this.m_grv_hang.OptionsFind.ShowCloseButton = false;
+            this.m_grv_hang.OptionsFind.ShowFindButton = false;
             this.m_grv_hang.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.m_grv_hang.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.m_grv_hang.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
