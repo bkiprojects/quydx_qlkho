@@ -135,7 +135,8 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 THOI_GIAN_BAO_HANH = (int) m_txt_thoi_gian_bao_hanh.EditValue,
                 BARCODE = m_txt_barcode.Text.Trim(),
                 ID_MAT_HANG = obj_selected.ID,
-                NGAY_NHAP_HANG = m_dat_ngay_nhap_kho.DateTime
+                NGAY_NHAP_HANG = m_dat_ngay_nhap_kho.DateTime,
+                ID_KHO  = (long) m_le_nhap_vao_kho.EditValue
             };
             m_lst_hang.Add(item);
             fill_data_to_grid_hang();

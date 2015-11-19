@@ -18,9 +18,18 @@ namespace BO
 
         public string BARCODE { get; set; }
         public DateTime? NGAY_NHAP_HANG { get; set; }
+        public DateTime? NGAY_XUAT_HANG { get; set; }
+        public DateTime? NGAY_BAT_DAU_BAO_HANH { get; set; }
+        public DateTime? NGAY_KET_THUC_BAO_HANH { get; set; }
         public long? ID_KHACH_HANG { get; set; }
         public DateTime? THOI_GIAN_BAT_DAU_BAO_HANH { get; set; }
         public DateTime? THOI_GIAN_KET_THUC_BAO_HANH { get; set; }
         public int? SO_LAN_BAO_HANH { get; set; }
+
+        public long? ID_TRANG_THAI { get; set; }
+        public string TEN_TRANG_THAI { get; set; }
+
+        public long? ID_KHO { get; set; }
+        public string TEN_KHO { get; set; }
     }
 }

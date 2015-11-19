@@ -29,6 +29,23 @@ namespace BSL.HANG_SERVICE
             }
         }
         #endregion
+
+        public List<BO_HANG> LayDanhSachHangTrongKho(long ip_id_kho)
+        {
+            List<BO_HANG> resultList = new List<BO_HANG>();
+            using(var uow = new UnitOfWork())
+            {
+                var lst_hang = uow.Repository<GD_HANG>().GetWithInclude(x=>x.TRANG_THAI).Where(x => x.ID_KHO == ip_id_kho).ToList();
+                foreach(var item in lst_hang)
+                {
+                    var r = convert_to_BO(item);
+                    r.TEN_TRANG_THAI = item.TRANG_THAI.TEN_TU_DIEN;
+                    r.ID_TRANG_THAI = item.ID_TRANG_THAI;
+                    resultList.Add(r);
+                }
+            }
+            return resultList;
+        }
         public bool IsXuatKho(string barcode)
         {
             using(var uow = new UnitOfWork())
@@ -135,6 +152,8 @@ namespace BSL.HANG_SERVICE
                 uow.Save();
             }
         }
+
+
         private GD_HANG convert_to_entity_insert(BO_HANG ip_obj_bo)
         {
             GD_HANG obj_result = new GD_HANG();
@@ -148,6 +167,7 @@ namespace BSL.HANG_SERVICE
             obj_result.ObjectState = MODEL.Common.ObjectState.Added;
             obj_result.THOI_GIAN_BAO_HANH = ip_obj_bo.THOI_GIAN_BAO_HANH;
             obj_result.NGAY_NHAT_HANG = ip_obj_bo.NGAY_NHAP_HANG;
+            obj_result.ID_KHO = ip_obj_bo.ID_KHO;
             return obj_result;
         }
         private BO_HANG convert_to_BO(GD_HANG entity)
@@ -166,6 +186,12 @@ namespace BSL.HANG_SERVICE
             output.THOI_GIAN_BAT_DAU_BAO_HANH = entity.NGAY_BAT_DAU_BAO_HANH;
             output.THOI_GIAN_KET_THUC_BAO_HANH = entity.NGAY_KET_THUC_BAO_HANH;
             output.SO_LAN_BAO_HANH = entity.SO_LAN_BAO_HANH;
+            output.ID_KHO = entity.ID_KHO;
+
+            output.NGAY_NHAP_HANG = entity.NGAY_NHAT_HANG;
+            output.NGAY_XUAT_HANG = entity.NGAY_XUAT_HANG;
+            output.NGAY_BAT_DAU_BAO_HANH = entity.NGAY_BAT_DAU_BAO_HANH;
+            output.NGAY_KET_THUC_BAO_HANH = entity.NGAY_KET_THUC_BAO_HANH;
             return output;
         }
     }
