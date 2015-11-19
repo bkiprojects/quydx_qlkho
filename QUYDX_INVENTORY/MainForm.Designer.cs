@@ -45,6 +45,7 @@
             this.m_cmd_nhom_nguoi_su_dung = new DevExpress.XtraBars.BarButtonItem();
             this.m_cmd_phan_quyen_cho_nhom = new DevExpress.XtraBars.BarButtonItem();
             this.m_cmd_tra_ncc = new DevExpress.XtraBars.BarButtonItem();
+            this.m_cmd_bc_xuat_nhap_ton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -53,11 +54,10 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.m_cmd_bc_xuat_nhap_ton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManager)).BeginInit();
             this.SuspendLayout();
@@ -215,6 +215,14 @@
             this.m_cmd_tra_ncc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // m_cmd_bc_xuat_nhap_ton
+            // 
+            this.m_cmd_bc_xuat_nhap_ton.Caption = "Xuất - Nhập - Tồn";
+            this.m_cmd_bc_xuat_nhap_ton.Id = 16;
+            this.m_cmd_bc_xuat_nhap_ton.Name = "m_cmd_bc_xuat_nhap_ton";
+            this.m_cmd_bc_xuat_nhap_ton.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -241,7 +249,6 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.m_cmd_nhan_vien);
             this.ribbonPageGroup4.ItemLinks.Add(this.m_cmd_mat_hang);
             this.ribbonPageGroup4.ItemLinks.Add(this.m_cmd_khach_hang);
-            this.ribbonPageGroup4.ItemLinks.Add(this.m_cmd_nha_cung_cap);
             this.ribbonPageGroup4.ItemLinks.Add(this.m_cmd_kho);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
@@ -259,7 +266,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_phieu_xuat_kho);
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_phieu_nhan_bao_hanh);
             this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_chuyen_kho);
-            this.ribbonPageGroup2.ItemLinks.Add(this.m_cmd_tra_ncc);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Các loại phiếu nghiệp vụ";
             // 
@@ -275,6 +281,11 @@
             this.ribbonPageGroup5});
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "BÁO CÁO";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.m_cmd_bc_xuat_nhap_ton);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             // 
             // ribbonPage4
             // 
@@ -292,19 +303,6 @@
             // 
             this.MdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.MdiManager.MdiParent = this;
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.m_cmd_bc_xuat_nhap_ton);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            // 
-            // m_cmd_bc_xuat_nhap_ton
-            // 
-            this.m_cmd_bc_xuat_nhap_ton.Caption = "Xuất - Nhập - Tồn";
-            this.m_cmd_bc_xuat_nhap_ton.Id = 16;
-            this.m_cmd_bc_xuat_nhap_ton.Name = "m_cmd_bc_xuat_nhap_ton";
-            this.m_cmd_bc_xuat_nhap_ton.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // MainForm
             // 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MODEL.CHUYEN_KHO
 {
-    public class GD_CHUYEN_KHO : Entity
+    public class GD_CHUYEN_KHO : CHUNG_TU_INFO
     {
 
         #region Public Behavior
@@ -19,7 +19,8 @@ namespace MODEL.CHUYEN_KHO
         #endregion
 
         #region Property
-        public long ID { get; private set; }
+        public long ID_KHO_TO { get; set; }
+        public string BARCODE { get; set; }
         #endregion
     }
 }

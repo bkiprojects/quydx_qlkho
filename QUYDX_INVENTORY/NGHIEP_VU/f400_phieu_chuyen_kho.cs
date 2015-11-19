@@ -3,6 +3,7 @@ using BSL.HANG_SERVICE;
 using COMMON;
 using COMMON.Exception;
 using DevExpress.XtraEditors;
+using MODEL.CHUYEN_KHO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,8 +46,10 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
         }
         private bool is_exist_barcode_in_csdl(string ip_str_barcode)
         {
-            if(BS_MAT_HANG.Instance.IsExistBarcode(ip_str_barcode))
+            if(BS_MAT_HANG.Instance.IsExistBarcodeNhapKho(ip_str_barcode))
+            {
                 return true;
+            }
             return false;
         }
         private void fill_data_suggest(string barcode)
@@ -54,6 +57,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             if(!is_exist_barcode_in_csdl(m_txt_barcode.Text))
             {
                 XtraMessageBox.Show("Không có barcode này trong CSDL", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                m_sle_chuyen_tu_kho.EditValue = null;
                 return;
             }
 
@@ -62,6 +66,19 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
             m_sle_chuyen_tu_kho.EditValue = obj_bo.ID_KHO;
 
             m_sle_chuyen_toi_kho.Focus();
+        }
+        private void lap_phieu()
+        {
+            GD_CHUYEN_KHO phieu_chuyen_kho = new GD_CHUYEN_KHO()
+            {
+                SO_CHUNG_TU = m_txt_so_phieu.Text,
+                NGAY_CHUNG_TU = m_dat_ngay_chung_tu.DateTime,
+                ID_NHAN_VIEN_LIEN_QUAN = (long)m_sle_nhan_vien.EditValue,
+                NGAY_NHAP_PHAN_MEM = DateTime.Now.Date,
+                ID_KHO_TO = (long) m_sle_chuyen_toi_kho.EditValue,
+                BARCODE = m_txt_barcode.Text
+            };
+            //BS_MAT_HANG.Instance.LapPhieuChuyenKho();
         }
         private void set_define_event()
         {
@@ -86,7 +103,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                 ExceptionHandle.Show(v_e);
             }
         }
-
+        
         void m_cmd_danh_sach_phieu_Click(object sender, EventArgs e)
         {
             try
@@ -108,7 +125,7 @@ namespace QUYDX_INVENTORY.NGHIEP_VU
                     XtraMessageBox.Show("Hoàn thiện dữ liệu trước", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-               
+                lap_phieu();
             }
             catch(Exception v_e)
             {

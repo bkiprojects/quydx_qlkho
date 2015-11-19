@@ -11,6 +11,7 @@ using COMMON;
 using MODEL.NHAP;
 using MODEL.XUAT;
 using MODEL.NHAN_BH;
+using MODEL.CHUYEN_KHO;
 namespace BSL.HANG_SERVICE
 {
     public class BS_MAT_HANG
@@ -106,6 +107,19 @@ namespace BSL.HANG_SERVICE
                 return false;
             }
         }
+        public bool IsExistBarcodeNhapKho(string ip_str_barcode)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                var id_nhap_kho = Convert.ToInt64(ReadDataConfig.ReadByKey("NHAP_KHO"));
+                var sl = uow.Repository<GD_HANG>().GetManyQueryable(x => x.BARCODE == ip_str_barcode && x.ID_TRANG_THAI == id_nhap_kho).Count();
+                if(sl > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
         public void LapPhieuNhap(GD_PHIEU_NHAP phieu_nhap, BindingList<BO_HANG> ip_lst_to_insert)
         {
             using(var uow = new UnitOfWork())
@@ -156,7 +170,20 @@ namespace BSL.HANG_SERVICE
                 uow.Save();
             }
         }
+        public void LapPhieuChuyenKho(GD_CHUYEN_KHO phieu_chuyen_kho, long id_hang, long id_kho_chuyen)
+        {
+            using(var uow = new UnitOfWork())
+            {
+                uow.Repository<GD_CHUYEN_KHO>().Insert(phieu_chuyen_kho);
 
+                var entity = uow.Repository<GD_HANG>().GetByID(id_hang);
+
+                entity.ID_KHO = id_kho_chuyen;
+                uow.Repository<GD_HANG>().Update(entity);
+
+                uow.Save();
+            }
+        }
 
         private GD_HANG convert_to_entity_insert(BO_HANG ip_obj_bo)
         {

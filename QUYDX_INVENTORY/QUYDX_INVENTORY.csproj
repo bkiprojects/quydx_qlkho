@@ -81,6 +81,24 @@
     <Compile Include="DANH_MUC\f200_danh_muc_kho.Designer.cs">
       <DependentUpon>f200_danh_muc_kho.cs</DependentUpon>
     </Compile>
+    <Compile Include="DANH_MUC\f201_danh_muc_khach_hang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DANH_MUC\f201_danh_muc_khach_hang.Designer.cs">
+      <DependentUpon>f201_danh_muc_khach_hang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DANH_MUC\f202_danh_muc_nhan_vien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DANH_MUC\f202_danh_muc_nhan_vien.Designer.cs">
+      <DependentUpon>f202_danh_muc_nhan_vien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DANH_MUC\f203_danh_muc_mat_hang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DANH_MUC\f203_danh_muc_mat_hang.Designer.cs">
+      <DependentUpon>f203_danh_muc_mat_hang.cs</DependentUpon>
+    </Compile>
     <Compile Include="HE_THONG\f000_dang_nhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +114,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IVT_Ver01DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IVT_Ver01DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IVT_Ver01DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IVT_Ver01DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IVT_Ver01DataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -137,6 +165,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DANH_MUC\f200_danh_muc_kho.resx">
       <DependentUpon>f200_danh_muc_kho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DANH_MUC\f201_danh_muc_khach_hang.resx">
+      <DependentUpon>f201_danh_muc_khach_hang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DANH_MUC\f202_danh_muc_nhan_vien.resx">
+      <DependentUpon>f202_danh_muc_nhan_vien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DANH_MUC\f203_danh_muc_mat_hang.resx">
+      <DependentUpon>f203_danh_muc_mat_hang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HE_THONG\f000_dang_nhap.resx">
       <DependentUpon>f000_dang_nhap.cs</DependentUpon>
@@ -191,6 +228,28 @@
     </None>
     <None Include="IVT_Ver01DataSet1.xss">
       <DependentUpon>IVT_Ver01DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="IVT_Ver01DataSet2.xsc">
+      <DependentUpon>IVT_Ver01DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="IVT_Ver01DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IVT_Ver01DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IVT_Ver01DataSet2.xss">
+      <DependentUpon>IVT_Ver01DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="IVT_Ver01DataSet3.xsc">
+      <DependentUpon>IVT_Ver01DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="IVT_Ver01DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IVT_Ver01DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IVT_Ver01DataSet3.xss">
+      <DependentUpon>IVT_Ver01DataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
